@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 
@@ -59,27 +59,20 @@ this.setState(
   render() {
 
 
-const style = {
-
-backgroundColor : 'green',
-textColor : 'white',
-border : '1px solid yellow',
-padding : '8px',
-font:'inherit',
-cursor :'pointer'
-}
 
 let persons  = null;
 
-const classes = [];
+const c = [];
+
+let buttonClass = '';
 
 if(this.state.Person.length<=2) {
 
-  classes.push('red');
+  c.push(classes.red);
 }
 
 if(this.state.Person.length<=1){
-  classes.push('bold');
+  c.push(classes.bold);
 }
 
 if(this.state.showContent){
@@ -96,10 +89,8 @@ if(this.state.showContent){
     </div>
   )
 
-  style.backgroundColor = 'red';
-  style[':hover'] = {
-    backgroundColor :'green'
-  }
+buttonClass = classes.red;
+ 
 }
 
 
@@ -112,11 +103,11 @@ if(this.state.showContent){
 //<button  style= {style} onClick = {() => this.switchNameHandler('Blah blah') } >Switch Name</button>
 
 
-      <div className="App">
-        <h1>  I am react </h1>
-        <p  className = {classes.join(' ')}  >   This is working </p>
+      <div className={classes.App}  >
+        <h1 className='global'>  I am react </h1>
+        <p  className = {c.join(' ')}  >   This is working </p>
         
-        <button style= {style} onClick = {this.togglePersons} > Toggle below content </button>
+        <button  className= {buttonClass} onClick = {this.togglePersons} > Toggle below content </button>
    {persons}
       </div>
 

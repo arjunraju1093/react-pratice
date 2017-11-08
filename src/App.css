@@ -9,3 +9,30 @@
 .bold {
   font-weight: bolder;
 }
+
+:global .global {
+  font-family : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.App button{
+  padding : 16px;
+  background-color:red;
+  font:inherit;
+  color : white;
+}
+
+.App button:hover{
+  background-color: yellow;
+  color:black;
+}
+
+.App button.red {
+  background-color: white;
+  color: red;
+}
+
+.App button.red:hover{
+  background-color: green;
+  color:red;
+}
