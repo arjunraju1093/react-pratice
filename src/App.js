@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person';
-import Radium , {StyleRoot} from 'radium';
+
 
 class App extends Component {
  
@@ -66,10 +66,7 @@ textColor : 'white',
 border : '1px solid yellow',
 padding : '8px',
 font:'inherit',
-cursor :'pointer',
-':hover' : {
-  backgroundColor : 'yellow'
-}
+cursor :'pointer'
 }
 
 let persons  = null;
@@ -114,7 +111,7 @@ if(this.state.showContent){
       //using arrow to bind is inefficient 'blah blah thing'
 //<button  style= {style} onClick = {() => this.switchNameHandler('Blah blah') } >Switch Name</button>
 
-<StyleRoot>
+
       <div className="App">
         <h1>  I am react </h1>
         <p  className = {classes.join(' ')}  >   This is working </p>
@@ -122,7 +119,7 @@ if(this.state.showContent){
         <button style= {style} onClick = {this.togglePersons} > Toggle below content </button>
    {persons}
       </div>
-</StyleRoot>
+
       //this should have one parent 
 
       //can pass events as props
@@ -133,4 +130,4 @@ if(this.state.showContent){
   }
 }
 
-export default Radium(App);
+export default App;
