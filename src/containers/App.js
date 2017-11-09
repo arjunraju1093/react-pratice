@@ -7,8 +7,11 @@ import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
- 
- state = {
+
+
+  constructor(props){
+    super(props);
+this.state = {
  Person : [
    {
      id:1,
@@ -22,6 +25,18 @@ class App extends Component {
 showContent : false
 
 }
+
+console.log('[App.js] inside constructor');
+  }
+ 
+ componentWillMount(){
+console.log('[App.js] inside componentWillMount()');
+
+ }
+
+ componentDidMount(){
+   console.log('[App.js] inside componentDidMount()');
+ }
 
 removePerson = (index) =>{
 //const person = this.state.Person.slice(); //copying array
@@ -61,7 +76,7 @@ this.setState(
  
   render() {
 
-
+console.log('[App.js] inside render method');
 
 let persons  = null;
 
@@ -95,7 +110,7 @@ if(this.state.showContent){
 
 
       <div className={classes.App}  >
-       <Cockpit togglePersons = {this.togglePersons} Person = {this.state.Person} sc = {this.state.showContent} />
+       <Cockpit title = {this.props.title} togglePersons = {this.togglePersons} Person = {this.state.Person} sc = {this.state.showContent} />
    {persons}
       </div>
 
