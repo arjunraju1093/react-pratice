@@ -4,6 +4,9 @@ import classes from './App.css';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
+import withWrapClass from '../hoc/withClassWrap';
+import Aux from '../hoc/Aux';
 
 
 class App extends PureComponent {
@@ -124,11 +127,14 @@ if(this.state.showContent){
 //<button  style= {style} onClick = {() => this.switchNameHandler('Blah blah') } >Switch Name</button>
 
 
-      <div className={classes.App}  >
+  //     {/*<WithClass class={classes.App}  >
+  //      <Cockpit title = {this.props.title} togglePersons = {this.togglePersons} Person = {this.state.Person} sc = {this.state.showContent} />
+  //  {persons}
+  //     </WithClass>*/}
+<Aux>
        <Cockpit title = {this.props.title} togglePersons = {this.togglePersons} Person = {this.state.Person} sc = {this.state.showContent} />
-   {persons}
-      </div>
-
+         {persons}
+</Aux>
       //this should have one parent 
 
       //can pass events as props
@@ -139,4 +145,4 @@ if(this.state.showContent){
   }
 }
 
-export default App;
+export default withWrapClass(App, classes.App);
