@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import classes from './App.css';
-import Person from './Person/Person';
-import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import Persons from '../components/Persons/Persons';
+import Cockpit from '../components/Cockpit/Cockpit';
 
 
 class App extends Component {
@@ -63,35 +65,22 @@ this.setState(
 
 let persons  = null;
 
-const c = [];
 
-let buttonClass = '';
-
-if(this.state.Person.length<=2) {
-
-  c.push(classes.red);
-}
-
-if(this.state.Person.length<=1){
-  c.push(classes.bold);
-}
 
 if(this.state.showContent){
 
   persons = (
 <div>
-  {this.state.Person.map((person , index) => {
-  return ( <ErrorBoundary key= {person.id}>
-        <Person  name = {person.name} age= {person.age}  click= {this.removePerson.bind(this, index)}
-     change = { (event) => {this.nameChangeHandler(event, person.id)}}
-      />
-      </ErrorBoundary>
- )
-  })}
+
+  <Persons Person = {this.state.Person} 
+   removePerson = {this.removePerson}
+   nameChangeHandler = {this.nameChangeHandler}
+     />
+  
     </div>
   )
 
-buttonClass = classes.red;
+
  
 }
 
@@ -106,10 +95,7 @@ buttonClass = classes.red;
 
 
       <div className={classes.App}  >
-        <h1 className='global'>  I am react </h1>
-        <p  className = {c.join(' ')}  >   This is working </p>
-        
-        <button  className= {buttonClass} onClick = {this.togglePersons} > Toggle below content </button>
+       <Cockpit togglePersons = {this.togglePersons} Person = {this.state.Person} sc = {this.state.showContent} />
    {persons}
       </div>
 
