@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
 
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -6,7 +6,7 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 
-class App extends Component {
+class App extends PureComponent {
 
 
   constructor(props){
@@ -37,6 +37,21 @@ console.log('[App.js] inside componentWillMount()');
  componentDidMount(){
    console.log('[App.js] inside componentDidMount()');
  }
+
+// shouldComponentUpdate(nextProps, nextState){
+
+// console.log('[App.js], inside shouldCOmponentUpdate() method');
+// return true;
+// }
+// will be taken care by PureComponent class
+
+componentWillUpdate(nextProps, nextState){
+  console.log('[App.js],inside componentWillUpdate() method');
+}
+
+componentDidUpdate(){
+  console.log('[App.js], inside componentDidUpdate() method');
+}
 
 removePerson = (index) =>{
 //const person = this.state.Person.slice(); //copying array
