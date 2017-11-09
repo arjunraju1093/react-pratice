@@ -6,7 +6,9 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import WithClass from '../hoc/WithClass';
 import withWrapClass from '../hoc/withClassWrap';
-import Aux from '../hoc/Aux';
+import Aux from '../hoc/Auxillary';
+
+
 
 
 class App extends PureComponent {
@@ -82,7 +84,7 @@ this.setState({
 }
 
 togglePersons = () =>{
-this.setState(
+this.setState( 
   { 
     showContent : !this.state.showContent
   }

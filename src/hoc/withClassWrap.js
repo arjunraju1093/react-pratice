@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 const withWrapClass = (Wrap, className) =>{
 
-return (props)=> (
-
+/*return (props)=> (
 <div className = {className}>
-    <Wrap />
-        
+    <Wrap {...props} />
+    </div>
+)*/
 
+
+return class extends Component {
+
+render(){
+
+    return (
+<div className = {className}>
+
+<Wrap {...this.props} />
     </div>
 
-)
+    )
+}
+
+}
 
 };
 
